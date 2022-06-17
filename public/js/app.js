@@ -10,6 +10,8 @@ weatherForm.addEventListener('submit', (e) => {
     
     resultCard.style.display = 'none'
     loading.textContent = 'Loading...'
+    loct.textContent = null
+    forecast.textContent = null
     
     const address = search.value
     if(!address || address === '') {
@@ -19,10 +21,16 @@ weatherForm.addEventListener('submit', (e) => {
     }
     fetch(`/weather?address=${address}`).then((response) => {
     response.json().then((data) => {
+        resultCard.style.display = 'block'
+        if (data.error) {
+            loading.textContent = null
+            loct.textContent = data.error
+            return false
+        }
+                
         loading.textContent = null
-        //loct.textContent = data.location
-        //forecast.textContent = data.forecast
-        //resultCard.style.display = 'block'
+        loct.textContent = data.location
+        forecast.textContent = data.forecast
     })
 })
 })

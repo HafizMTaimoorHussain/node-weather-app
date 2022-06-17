@@ -52,16 +52,15 @@ app.get('/weather', (req, res) => {
     const address = req.query.address
     if(!address || address === '') return res.send({ error: 'You must provide an address!' })
     
-    geocode(req.query.address, (error, { latitude, longitude, location }) => {
+    geocode(address, (error, { latitude, longitude, location } = {}) => {
         if(error) return res.send({ error })
         
         forecast(latitude, longitude, (error, body) => {
             if(error) return res.send({ error })
 
-            console.log(body)
             res.send({
-                //forecast: `Mainly ${body.weather[0].main} and ${body.weather[0].description}. It is currently ${body.main.temp} degrees out. But it feels like ${body.main.feels_like} degrees out.`,
-                //location: location + "," + " " + body.sys.country,
+                forecast: `Mainly ${body.weather[0].main} and ${body.weather[0].description}. It is currently ${body.main.temp} degrees out. But it feels like ${body.main.feels_like} degrees out.`,
+                location: location + "," + " " + body.sys.country,
                 address,
             })
         })
