@@ -20,9 +20,9 @@ weatherForm.addEventListener('submit', (e) => {
     fetch(`/weather?address=${address}`).then((response) => {
     response.json().then((data) => {
         loading.textContent = null
-        loct.textContent = data.location
-        forecast.textContent = data.forecast
-        resultCard.style.display = 'block'
+        //loct.textContent = data.location
+        //forecast.textContent = data.forecast
+        //resultCard.style.display = 'block'
     })
 })
 })
