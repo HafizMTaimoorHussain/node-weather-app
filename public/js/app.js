@@ -17,7 +17,7 @@ weatherForm.addEventListener('submit', (e) => {
         loading.textContent = 'Please provide the location!'
         return false
     }
-    fetch(`http://localhost:3000/weather?address=${address}`).then((response) => {
+    fetch(`/weather?address=${address}`).then((response) => {
     response.json().then((data) => {
         loading.textContent = null
         loct.textContent = data.location
