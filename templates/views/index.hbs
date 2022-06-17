@@ -1,0 +1,45 @@
+{{>header}}
+
+<body>
+    {{>navbar}}
+
+<section class="content">
+    <div class="container-fluid mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card p-3 rounded shadow">
+                    <div class="card-header bg-white">
+                        <div class="card-title">
+                            Weather App
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control rounded" placeholder="Search your desired weather...." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-secondary rounded shadow" style="width: 100%;">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="col-md-12 mt-2">
+                            <p id="loading"></p>
+                            <div class="card shadow rounded p-3" id="weather-result-card" style="display: none">
+                                <p id="loct"></p>
+                                <p id="forecast"></p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+</body>
+
+{{>footer}}
